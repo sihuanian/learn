@@ -1,13 +1,9 @@
-import { CHANGE_VALUE, ADD_ITEM, REMOVE } from "./actionTypes"
+import { CHANGE_VALUE, ADD_ITEM, REMOVE, GET_LIST } from "./actionTypes"
 
 
 const defaultList = {
   inputValue: '',
-  list: [
-    '没有未来的未来不是我想要的未来',
-    '能哭的地方只有爸爸的怀里',
-    '我为何在哭泣'
-  ]
+  list: []
 }
 
 export default function (state = defaultList, action) {
@@ -24,6 +20,10 @@ export default function (state = defaultList, action) {
     case REMOVE:
       // let cloneList1 = JSON.parse(JSON.stringify(state))
       cloneList.list.splice(action.index, 1)
+      return cloneList
+    case GET_LIST:
+      // let cloneList1 = JSON.parse(JSON.stringify(state))
+      cloneList.list = action.data
       return cloneList
     default:
       return state

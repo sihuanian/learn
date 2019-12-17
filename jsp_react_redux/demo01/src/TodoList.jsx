@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import store from './store'
 // import { ADD_ITEM, CHANGE_VALUE, REMOVE } from './store/actionTypes'
-import { changeValueAction, addItemAction, removeAction } from './store/actionCreators'
+import { changeValueAction, addItemAction, removeAction, getTodoList } from './store/actionCreators'
 import TodoListUI from './TodoListUI'
 
 class TodoList extends Component {
@@ -14,6 +14,16 @@ class TodoList extends Component {
     this.remove = this.remove.bind(this)
     this.ref = React.createRef()
     store.subscribe(this.storeChange) // 订阅store 的状态，store 改变时执行回调函数（重新得到最新的state）
+  }
+
+  componentDidMount () {
+    /* axios.get('http://rap2api.taobao.org/app/mock/240109/redux/todolist')
+      .then(res => {
+        const action = getListAction(res.data.list)
+        store.dispatch(action)
+      }) */
+    const action = getTodoList()
+    store.dispatch(action)
   }
 
   changeValue (e) {
