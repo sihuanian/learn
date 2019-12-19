@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { CHANGE_VALUE, ADD_ITEM, REMOVE, GET_LIST } from "./actionTypes"
+import { CHANGE_VALUE, ADD_ITEM, REMOVE, GET_LIST, GET_MY_LIST } from "./actionTypes"
 
 export const changeValueAction = (value) => {
   return {
@@ -38,3 +38,7 @@ export const getTodoList = () => {
       })
   }
 }
+
+export const getMyListAction = () => ({
+  type: GET_MY_LIST
+})
