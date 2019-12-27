@@ -6,8 +6,12 @@ class List extends Component {
     this.state = {  }
   }
   render() {
+    console.log(this.props)
     return (
-      <h2>List-page -> {this.state.id}</h2>
+      <>
+        <button onClick={this.props.history.goBack}>返回</button>
+        <h2>List-page -> {this.state.id}</h2>
+      </>
     )
   }
   componentDidMount() { // 接收传值建议在这个生命周期

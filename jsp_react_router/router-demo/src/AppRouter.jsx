@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import Index from './components/Index'
 import List from './components/List'
+import Home from './components/Home'
 
 /* function Index() {
   return (
@@ -16,7 +17,7 @@ function List() {
 } */
 
 export default function AppRouter() {
-  // Router exact 精确匹配路径  路径为path 中的值时，加载对应的component 组件
+  // Route exact 精确匹配路径  路径为path 中的值时，加载对应的component 组件
   // Link 与vue 中的<router-link> 相似，翻译成a 标签，to 就是点击跳转的路径
   // 万物皆组件，组件化的路由配置
   return (
@@ -27,6 +28,7 @@ export default function AppRouter() {
       </ul>
       <Route path="/" exact component={Index}></Route>
       <Route path="/list/:id" component={List}></Route>
+      <Route path="/home" component={Home}></Route>
     </Router>
   )
 }
