@@ -5,8 +5,11 @@ class NewsController extends Controller {
     // const { ctx } = this;
     // ctx.body = '新闻页面';
     const msg = '新闻页';
-    const newsList = [1, 2, 3];
+    // const newsList = [1, 2, 3];
     const { ctx } = this;
+    const newsList = await this.service.newslist.index();
+
+    console.log(this.config.baseURL)
     await ctx.render('news.html', {
       msg,
       newsList

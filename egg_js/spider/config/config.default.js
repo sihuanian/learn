@@ -13,24 +13,23 @@ module.exports = appInfo => {
   const config = exports = {};
 
   // use for cookie sign key, should change to your own and keep security
-  config.keys = appInfo.name + '_1577886432089_6785';
+  config.keys = appInfo.name + '_1577969541498_5425';
 
   // add your middleware config here
   config.middleware = [];
 
-  // ejs 模版引擎
+  // add your user config here
+  const userConfig = {
+    // myAppName: 'egg',
+  };
+
   config.view = {
     mapping: {
       '.html': 'ejs',
     },
   };
 
-  config.baseURL = 'http://localhost:7001';
-
-  // add your user config here
-  const userConfig = {
-    // myAppName: 'egg',
-  };
+  config.api = 'http://www.phonegap100.com/';
 
   return {
     ...config,
