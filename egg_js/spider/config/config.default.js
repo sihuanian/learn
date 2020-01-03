@@ -16,7 +16,8 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1577969541498_5425';
 
   // add your middleware config here
-  config.middleware = [];
+  config.middleware = ['forbidIp', 'auth'];
+  config.forbidIp = ['127.0.0.1', '::1']; // forbidIp中间件的options 参数
 
   // add your user config here
   const userConfig = {
@@ -30,6 +31,14 @@ module.exports = appInfo => {
   };
 
   config.api = 'http://www.phonegap100.com/';
+
+  // session 的配置
+  config.session = {
+    key: 'sesion_id',
+    maxAge: 1000 *15,
+    httpOnly: true,
+    renew: true // 延期session 的时间
+  }
 
   return {
     ...config,
